@@ -74,7 +74,10 @@ function ShoppingListCheckOffService() {
 
 function totalPriceFilter() {
   return function (input) {
-    input = input || "";
+    var int = parseInt(input);
+    if (input === undefined || input === "" || int < 0){
+      input = 0;
+    }
     input = "$$$" + input;
     return input;
 
