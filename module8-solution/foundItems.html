@@ -1,0 +1,14 @@
+<br>
+<br>
+<br>
+<table ng-if="itemFound.resultsFound();">
+    <tr ng-repeat="item in itemFound.found">
+        <td>  {{item.name}}</td>
+        <td>  {{item.short_name}}</td>
+        <td>  {{item.description}}</td>
+        <td>
+          <button ng-click="itemFound.remove({index : $index});">Don't want this one!</button>
+        </td>
+    </tr>
+</table>
+<br>
