@@ -14,7 +14,7 @@
            if(myInfo.user.firstName === "") {
             return false;
            } else {    
-          return true ;
+          return true;
            }
         }
     
@@ -24,13 +24,13 @@
     
     myInfo.checkMenuItem = function () {
       if(myInfo.menuItem === null) {
-        return false ;
+        return false;
       } else {
-        return true ;
+        return true;
       }
     }
     if(myInfo.user.firstName === "") {
-      myInfo.signUp = true ;
+      myInfo.signUp = true;
       }
     }
     })();
