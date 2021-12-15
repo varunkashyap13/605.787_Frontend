@@ -1,0 +1,53 @@
+<fieldset>
+    <legend>Registration</legend>
+    <form name='formSignUp' novalidate>
+      <p>First Name: </p>
+      <input class= "textBox" type="text" name="firstName" placeholder="First Name"
+        ng-model="signUpCtrl.user.firstName" required minlength="4" ng-maxlength="10">
+        <span
+          ng-if="(formSignUp.firstName.$error.minlength || formSignUp.firstName.$error.required) && formSignUp.firstName.$touched">
+          First Name must be at least 4 characters long
+        </span>
+        <span ng-if="formSignUp.firstName.$error.maxlength && formSignUp.firstName.$touched">
+          First Name must not be longer than 10 characters
+        </span>
+        <p>Last Name: </p>
+        <input class= "textBox" type="text" name="lastName" placeholder="Last Name"
+          ng-model="signUpCtrl.user.lastName" required minlength="4" ng-maxlength="10">
+          <span
+            ng-if="(formSignUp.lastName.$error.minlength || formSignUp.lastName.$error.required) && formSignUp.lastName.$touched">
+            Last Name must be at least 4 characters long
+          </span>
+          <span ng-if="formSignUp.lastName.$error.maxlength && formSignUp.lastName.$touched">
+            Last Name must not be longer than 10 characters
+          </span>
+        <p>Email: </p>
+      <input class= "textBox" type="email" name="email" placeholder="Email"
+        ng-model="signUpCtrl.user.email" required>
+        <span ng-if="formSignUp.email.$invalid && formSignUp.email.$touched">
+          Please enter email in format: handle@domain
+        </span>
+      <p>Phone: </p>
+      <input class= "textBox" type="text" name="phone" placeholder="Phone"
+        ng-model="signUpCtrl.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})"
+        required>
+        <span ng-if="formSignUp.phone.$invalid && formSignUp.phone.$touched">
+          Please enter phone in format: ###-###-####
+        </span>
+        <p>Menu Item: </p>
+        <input class= "textBox" type="text" name="category" placeholder="Menu Item"
+          ng-model="signUpCtrl.user.menuItem" ng-blur="signUpCtrl.checkItem()" required>
+          <span ng-if="formSignUp.category.$invalid && formSignUp.category.$touched">
+            Please enter menu item
+          </span>
+          <span ng-if="signUpCtrl.menuSearched && !signUpCtrl.validItem">
+            Sorry, no such menu number exists
+          </span>
+      <button
+        ng-disabled="formSignUp.$invalid"
+        ng-click="signUpCtrl.submit()">Submit</button>
+        <div ng-if="formSignUp.$valid&&signUpCtrl.searchComplete" style="margin-top: 10px;">
+        Thanks, your information has been saved!
+        </div>
+    </form>
+  </fieldset>
